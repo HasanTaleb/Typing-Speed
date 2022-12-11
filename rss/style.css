@@ -1,0 +1,100 @@
+* {
+    font-family: monospace;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    background: whitesmoke;
+    justify-content: space-between;
+    max-width: 800px;
+    margin: auto;
+}
+
+.container>div {
+    margin: 30px 20px;
+
+}
+
+#text {
+    margin: auto;
+    font-size: 28px;
+    color: dimgray;
+}
+
+#typingArea {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+#counter {
+    align-self: end;
+}
+
+#userInput {
+    width: 100%;
+    margin: 5px auto;
+    border: 1px dashed darkgray;
+    resize: none;
+}
+
+#calcs {
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#calcs>div {
+    width: 90px;
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background: lightgray;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.correct {
+    background: #c7e5c7;
+    color: green;
+}
+
+.incorrect {
+    background: #e5c7c7;
+    color: green;
+}
+
+.events-none {
+    pointer-events: none;
+}
+
+.result {
+    background: darkblue !important;
+    color: white;
+    font-weight: bold;
+}
+
+#reset {
+    background: #3f61dd;
+    color: white;
+    padding: 5px 7px;
+    border: 1px solid #a9c4ff;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .container {
+        flex-direction: column;
+    }
+
+    #calcs {
+        flex-direction: row;
+        width: auto;
+    }
+}

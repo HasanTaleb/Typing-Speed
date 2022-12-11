@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./rss/style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <div id="text">
+
+            </div>
+
+            <div id="typingArea">
+                <span id="counter"></span>
+                <textarea oninput="processCurrentText()" name="userInput" id="userInput" placeholder="Type here..."
+                    cols="30" rows="10" onselectstart="return false" onpaste="return false;" onCopy="return false"
+                    onCut="return false" onDrag="return false" onDrop="return false"></textarea>
+            </div>
+        </div>
+        <div id="calcs">
+
+            <div>
+                <div>Accuracy</div>
+                <div id="acc">0</div>
+            </div>
+            <div>
+                <div>WPM</div>
+                <div id="wpm">0</div>
+            </div>
+            <div>
+                <div>Mistakes</div>
+                <div id="mistakes">0</div>
+            </div>
+            <button id="reset" onclick="reset()">Reset</button>
+        </div>
+    </div>
+    <script src="./rss/main.js"></script>
+</body>
+
+</html>
