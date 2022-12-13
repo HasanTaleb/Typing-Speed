@@ -1,6 +1,12 @@
 if ("serviceWorker" in navigator) {
     // register service worker
-    navigator.serviceWorker.register("service-worker.js");
+    navigator.serviceWorker.register("service-worker.js").then((registration) => {
+        console.log('Service worker registration succeeded:', registration);
+    }, /*catch*/(error) => {
+        console.error(`Service worker registration failed: ${error}`);
+    });
+} else {
+    console.error('Service workers are not supported.');
 }
 
 let text_samples = [
@@ -120,8 +126,9 @@ function startTimer() {
 
 function finish() {
     userInput.blur();
-    userInput.classList.add("events-none");
-    document.querySelectorAll("#calcs>div").forEach(el => el.classList.add("result"))
+    userInput.disabled = true;
+    document.querySelectorAll("#calcs>div").forEach(el => el.classList.add("result"));
+    clearInterval(interval_id);
 }
 
 function reset() {
@@ -140,5 +147,6 @@ function reset() {
     current_txt = null;
     document.querySelectorAll("#calcs>div").forEach(el => el.classList.remove("result"))
     userInput.classList.remove("events-none");
+    userInput.disabled = false;
     changeText()
 }

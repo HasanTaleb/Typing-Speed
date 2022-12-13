@@ -1,21 +1,23 @@
 {
-    "name": "Typing Speed Calculator",
-    "short_name": "Typing Speed",
-    "start_url": "index.html",
-    "scope": "./",
-    "icons": [
-      {
-        "src": "keyboard.png",
-        "sizes": "192x192",
-        "type": "image/png"
-      },
-      {
-        "src": "keyboard.png",
-        "sizes": "512x512",
-        "type": "image/png"
-      }
-    ],
-    "theme_color": "#ffd31d",
-    "background_color": "#333",
-    "display": "standalone"
-  }
+  "name": "Typing Speed Calculator",
+  "short_name": "Typing Speed",
+  "start_url": "index.html",
+  "scope": "./",
+  "icons": [
+    {
+      "src": "/icons/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "theme_color": "#ffd31d",
+  "background_color": "#333",
+  "prefer_related_applications": false,
+  "display": "standalone"
+}

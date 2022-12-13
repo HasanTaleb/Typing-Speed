@@ -1,10 +1,12 @@
+const staticCashName = "v1";
+
 const addResourcesToCache = async (resources) => {
-  const cache = await caches.open('v1');
+  const cache = await caches.open(staticCashName);
   await cache.addAll(resources);
 };
 
 const putInCache = async (request, response) => {
-  const cache = await caches.open('v1');
+  const cache = await caches.open(staticCashName);
   await cache.put(request, response);
 };
 
@@ -37,27 +39,29 @@ const cacheFirst = async ({ request, preloadResponsePromise, fallbackUrl }) => {
   }
 };
 
-const enableNavigationPreload = async () => {
-  if (self.registration.navigationPreload) {
-    await self.registration.navigationPreload.enable();
-  }
-};
-
 self.addEventListener('activate', (event) => {
-  event.waitUntil(enableNavigationPreload());
+  event.waitUntil(
+    caches.keys().then(keys => {
+      return Promise.all(keys
+        .filter(key => key !== staticCashName)
+        .map(key => caches.delete(key)))
+    })
+  )
 });
 
-self.addEventListener('install', (event) => {
+self.addEventListener('install', event => {
   event.waitUntil(
     addResourcesToCache([
       '/',
       '/index.html',
-      '/style.css',
+      '/rss/style.css',
       '/rss/main.js',
-      '/android-chrome-192x192.png',
-      '/android-chrome-512x512.png',
-      '/apple-touch-icon.png',
-      '/favicon.ico',
+      '/icons/android-chrome-192x192.png',
+      '/icons/android-chrome-512x512.png',
+      '/icons/apple-touch-icon.png',
+      '/icons/favicon-16x16.png',
+      '/icons/favicon-32x32.png',
+      '/icons/favicon.ico',
     ])
   );
 });
